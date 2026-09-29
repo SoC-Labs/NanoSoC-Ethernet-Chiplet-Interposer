@@ -1,0 +1,26 @@
+
+
+# Left Ethernet Chiplet
+# Top to bottom
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_HOST_IO_6/PAD}]      [get_pins -design [current_block] {wb_array_44_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_HOST_IO_5/PAD}]      [get_pins -design [current_block] {wb_array_42_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_HOST_IO_4/PAD}]      [get_pins -design [current_block] {wb_array_40_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_HOST_IO_3/PAD}]      [get_pins -design [current_block] {wb_array_38_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_HOST_IO_2/PAD}]      [get_pins -design [current_block] {wb_array_36_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_HOST_IO_1/PAD}]      [get_pins -design [current_block] {wb_array_34_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_HOST_IO_0/PAD}]      [get_pins -design [current_block] {wb_array_32_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_VSSIO_R_2/PAD}]      [get_pins -design [current_block] {wb_array_30_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_VDDIO_R_2/PAD}]      [get_pins -design [current_block] {wb_array_28_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_RMII_CRS_DV/PAD}]    [get_pins -design [current_block] {wb_array_26_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_RMII_MDIO/PAD}]      [get_pins -design [current_block] {wb_array_24_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_RMII_TX_EN/PAD}]     [get_pins -design [current_block] {wb_array_22_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_RMII_TXD1/PAD}]      [get_pins -design [current_block] {wb_array_20_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_RMII_TXD0/PAD}]      [get_pins -design [current_block] {wb_array_18_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_RMII_RXD1/PAD}]      [get_pins -design [current_block] {wb_array_16_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_VSSIO_R_1/PAD}]      [get_pins -design [current_block] {wb_array_14_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_VDDIO_R_1/PAD}]      [get_pins -design [current_block] {wb_array_12_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_RMII_RXD0/PAD}]      [get_pins -design [current_block] {wb_array_10_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_RMII_REF_CLK/PAD}]   [get_pins -design [current_block] {wb_array_8_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_RMII_MDC/PAD}]       [get_pins -design [current_block] {wb_array_6_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_VSSIO_R_0/PAD}]      [get_pins -design [current_block] {wb_array_4_0/PAD}]
+connect_pins -driver [get_pins -design [current_block] {eth1_BuPAD_VDDIO_R_0/PAD}]      [get_pins -design [current_block] {wb_array_2_0/PAD}]
