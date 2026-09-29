@@ -20,3 +20,6 @@ lm_*.txt
 crte*.txt
 default*.svf
 gcr*.tcl
+
+*.idf
+*.png

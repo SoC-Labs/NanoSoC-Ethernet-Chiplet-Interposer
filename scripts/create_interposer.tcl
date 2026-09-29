@@ -27,7 +27,7 @@ create_block interposer \
 
 create_tsv_array -delta {500.00 500.00} -name tsv_array -via_def TSV1 -pattern inline -origin {250 250}
 
-create_bump_array -name wb_array -lib_cell bump/wb_120/frame -ring_depth 1 -delta {300 300}
+create_bump_array -name wb_array -lib_cell bump/wb_120/frame -ring_depth 1 -delta {400 400} -bbox {{400.00 400.00} {14600.00 14600.00}}
 
 ### Write Verilog and DEF
 write_verilog ./output_data/interposet_chiplet.v -include all
