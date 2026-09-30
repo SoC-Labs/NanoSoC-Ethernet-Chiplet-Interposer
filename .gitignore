@@ -3,7 +3,9 @@ tpbn65v_9lm.ndm
 bump_bottom.ndm
 bump.ndm
 ethernet_chiplet.ndm
-interposer.ndm
+interposer_A.ndm
+interposer_B.ndm
+interposer_C.ndm
 top.ndm
 compute_chiplet.ndm
 
@@ -23,3 +25,6 @@ gcr*.tcl
 
 *.idf
 *.png
+
+*.gds
+signoff_fill_run

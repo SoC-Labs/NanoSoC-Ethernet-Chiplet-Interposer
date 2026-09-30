@@ -60,7 +60,7 @@ wire I2C_SDA_0;
 wire I2C_SCL_1;
 wire I2C_SDA_1;
 
-interposer interposer_inst (
+interposer_C interposer_inst (
 );
 
 ethernet_chiplet0 u_eth_chiplet(
@@ -92,20 +92,35 @@ ethernet_chiplet0 u_eth_chiplet(
 );
 
 compute_chiplet0 u_compute_chiplet (
-    .I2C_SCL(I2C_SCL_0),
-    .I2C_SDA(I2C_SDA_0),
+    .NRST_I(),
+    .P1(),
+    .SE_I(),
+    .STRAP_I(),
+    .TEST_I(),
+    .CLK_I(),
+    .QSPI_IO(),
+    .QSPI_SCLK(),
+    .QSPI_nCS(),
+    .SWDCK_I(),
+    .SWDIO_IO(),
 
-    .TL_TX_0(TL_RX),
-    .TL_CLK_TX_0(TL_CLK_RX),
-    .TL_RX_0(TL_TX),
-    .TL_CLK_RX_0(TL_CLK_TX),
 
-    .I2C_SCL_1(I2C_SCL_1),
-    .I2C_SDA_1(I2C_SDA_1),
-    .TL_RX_1(TL_TX_1),
-    .TL_CLK_RX_1(TL_CLK_TX_1),
-    .TL_TX_1(TL_RX_1) ,
-    .TL_CLK_TX_1(TL_CLK_RX_1)
+    .D2D_RESET_1(),
+    .D2D_RX_1(TL_TX_1),
+    .D2D_RX_CLK_1(TL_CLK_TX_1),
+    .D2D_TX_1(TL_RX_1),
+    .D2D_TX_CLK_1(TL_CLK_RX_1),
+    .SCL1(I2C_SCL_1),
+    .SDA1(I2C_SDA_1),
+
+
+    .D2D_RESET_0(),
+    .D2D_RX_0(TL_TX),
+    .D2D_RX_CLK_0(TL_CLK_TX),
+    .D2D_TX_0(TL_RX),
+    .D2D_TX_CLK_0(TL_CLK_RX),
+    .SCL0(I2C_SCL_0),
+    .SDA0(I2C_SDA_0)
 ) ;
 
 

@@ -1,0 +1,36 @@
+###########################################################################################
+###
+### 3DIC Compiler Prototyping Lab Flow
+### (c) 2020 Synopsys
+###
+###########################################################################################
+set_host_options -max_cores 16
+### Create Ethernet Chiplet and Compute Chiplet
+source -echo -verbose ./scripts/create_ethernet_chiplet.tcl
+source -echo -verbose ./scripts/create_compute.tcl
+
+### Create empty interposer
+source -echo -verbose ./scripts/interposer_A/create_interposer.tcl
+
+### Create top-level system
+source -echo -verbose ./scripts/interposer_A/create_top.tcl
+
+### Route HBM signals
+source -echo -verbose ./scripts/interposer_A/route_chiplet.tcl
+
+write_gds -layer_map /home/dwn1c21/SoC-Labs/TAPEOUT/jan2025/3d_integration/ecsp-interposer-pdk/tech/1t_c4/mapfile \
+    -layer_map_format icc2 \
+    -merge_files [list \
+    /home/dwn1c21/SoC-Labs/TAPEOUT/jan2025/3d_integration/ecsp-interposer-pdk/libraries/1t_c4/gds/bumps_top.gds \
+    /home/dwn1c21/SoC-Labs/TAPEOUT/jan2025/3d_integration/ecsp-interposer-pdk/libraries/1t_c4/gds/bumps_bottom.gds ]\
+    interposer_A.gds
+
+set_app_options -list {signoff.create_metal_fill.runset {/home/dwn1c21/SoC-Labs/TAPEOUT/jan2025/3d_integration/ecsp-interposer-pdk/tech/1t_c4/fill.rs}}
+signoff_create_metal_fill -mode add -select_layers TM1
+
+write_gds -layer_map /home/dwn1c21/SoC-Labs/TAPEOUT/jan2025/3d_integration/ecsp-interposer-pdk/tech/1t_c4/mapfile \
+    -layer_map_format icc2 \
+    -merge_files [list \
+    /home/dwn1c21/SoC-Labs/TAPEOUT/jan2025/3d_integration/ecsp-interposer-pdk/libraries/1t_c4/gds/bumps_top.gds \
+    /home/dwn1c21/SoC-Labs/TAPEOUT/jan2025/3d_integration/ecsp-interposer-pdk/libraries/1t_c4/gds/bumps_bottom.gds ]\
+    interposer_A_fill.gds

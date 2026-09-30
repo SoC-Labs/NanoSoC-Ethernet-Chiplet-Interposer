@@ -10,24 +10,22 @@ set ecsp_interposer_pdk           /home/dwn1c21/SoC-Labs/TAPEOUT/jan2025/3d_inte
 # Technology files
 set ecsp_tech_file      $ecsp_interposer_pdk/tech/1t_c4/3dic_techfile.tf
 
-sh rm -rf interposer.ndm
-create_lib interposer.ndm \
+sh rm -rf interposer_C.ndm
+create_lib interposer_C.ndm \
   -technology $ecsp_tech_file
   
-set_ref_libs -ref_libs [list ./bump.ndm/]
+set_ref_libs -ref_libs [list ./bump.ndm/ ./bump_bottom.ndm/]
 
 set dieWidth 15000
 set dieHeight 15000
 
-create_block interposer \
+create_block interposer_C \
   -origin_type bottom_left \
   -dimensions [list $dieWidth $dieHeight] \
   -design_type interposer
 
 
-create_tsv_array -delta {500.00 500.00} -name tsv_array -via_def TSV1 -pattern inline -origin {250 250}
-
-create_bump_array -name wb_array -lib_cell bump/wb_120/frame -ring_depth 1 -delta {400 400} -bbox {{400.00 400.00} {14600.00 14600.00}}
+create_bump_array -name tsv_array -lib_cell bump_bottom/bottom_tsv_bump/frame -origin {250.00 250.00} -delta {500 500}
 
 ### Write Verilog and DEF
 write_verilog ./output_data/interposet_chiplet.v -include all
