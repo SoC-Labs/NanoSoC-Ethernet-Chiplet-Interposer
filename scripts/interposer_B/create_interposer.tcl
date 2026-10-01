@@ -25,7 +25,7 @@ create_block interposer_B \
   -design_type interposer
 
 
-create_bump_array -name wb_array -lib_cell bump/wb_120/frame -ring_depth 1 -delta {350 350} -bbox {{350.00 350.00} {14650.00 14650.00}}
+create_bump_array -name wb_array -lib_cell bump/wb_120/frame -ring_depth 1 -delta {350 350} -bbox {{500.00 500.00} {14650.00 14650.00}}
 
 ### Write Verilog and DEF
 write_verilog ./output_data/interposet_chiplet.v -include all
